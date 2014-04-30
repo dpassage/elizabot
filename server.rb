@@ -27,8 +27,9 @@ end
 
 post '/sms-quickstart' do
   inbound = params['Body']
+  number = params['From']
   twiml = Twilio::TwiML::Response.new do |r|
-    r.Message "This is not some cheese, #{inbound}"
+    r.Message "This is not some cheese, #{inbound} at #{number}"
   end
   twiml.text
 end
