@@ -2,7 +2,7 @@ require 'sinatra'
 require 'twilio-ruby'
 
 before do
-  content_type :txt
+#  content_type :txt
   @defeat = {rock: :scissors, paper: :rock, scissors: :paper}
   @throws = @defeat.keys
 end
