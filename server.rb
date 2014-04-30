@@ -26,10 +26,9 @@ get '/throw/:type' do
 end
 
 post '/sms-quickstart' do
-  request.body.rewind
-  puts request.body.read
+  inbound = params['Body']
   twiml = Twilio::TwiML::Response.new do |r|
-    r.Message "This is not some cheese"
+    r.Message "This is not some cheese, #{inbound}"
   end
   twiml.text
 end
