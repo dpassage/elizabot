@@ -5,7 +5,7 @@ require 'eliza'
 elizabots = {}
 
 post '/sms-quickstart' do
-  inbound = params['Body']
+  message = params['Body']
   number = params['From']
   eliza = elizabots[number]
 
@@ -14,7 +14,8 @@ post '/sms-quickstart' do
     elizabots[number] = eliza
     analysis = eliza.last_response
   else
-    analysis = eliza.process_input(inbound)
+    analysis = eliza.process_input(message)
+    elizabots[number] = nil if eliza.done
   end
 
   twiml = Twilio::TwiML::Response.new do |r|
