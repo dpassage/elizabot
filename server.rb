@@ -38,4 +38,5 @@ end
 
 post '/sms-quickstart' do
   puts request
+  "ack"
 end
