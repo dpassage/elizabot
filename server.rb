@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'twilio-ruby'
 
 before do
   content_type :txt
@@ -22,4 +23,11 @@ get '/throw/:type' do
   else
     "Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
   end
+end
+
+get '/sms-quickstart' do
+  twiml = Twilio::TwiML::Response.new do |r|
+    r.Message "Hey Monkey. Thanks for the message!"
+  end
+  twiml.text
 end
