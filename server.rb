@@ -25,18 +25,10 @@ get '/throw/:type' do
   end
 end
 
-get '/sms-quickstart' do
-    twiml = Twilio::TwiML::Response.new do |r|
-        r.Message do |message|
-        message.Body "Body"
-        message.MediaUrl "https://demo.twilio.com/owl.png"
-        message.MediaUrl "https://demo.twilio.com/logo.png"
-        end
-    end
-    twiml.text
-end
-
 post '/sms-quickstart' do
-  puts request
-  "ack"
+  puts request.body
+  twiml = Twilio::TwiML::Response.new do |r|
+    r.Message "This is not some cheese"
+  end
+  twiml.text
 end
