@@ -26,7 +26,7 @@ get '/throw/:type' do
 end
 
 post '/sms-quickstart' do
-  puts request.body
+  puts request.body.to_s
   twiml = Twilio::TwiML::Response.new do |r|
     r.Message "This is not some cheese"
   end
