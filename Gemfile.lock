@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/dpassage/eliza.git
+  revision: 309922aed84e7f31b353f227506b183a3c4a8f0a
+  specs:
+    eliza (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,6 +34,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  eliza!
   sinatra
   thin
   twilio-ruby
