@@ -35,3 +35,7 @@ get '/sms-quickstart' do
     end
     twiml.text
 end
+
+post '/sms-quickstart' do
+  puts request
+end
